@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <title>WorldSportz.com</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="author" content="Qi-Pee van der Spek">
+      <meta name="keywords" content="Sport, Sport Statistics, Sportnews, Football, Formule 1, Cycling, Shorttrack, Football Statistics, 
+      Formule 1 Statistics, Cycling Statistics, Shorttrack Statistics, Footballnews, Formule 1 news, Cyclingnews, Shorttrack news,
+      Fotball Information, Formule 1 Information, Cycling INformation, Shorttrack Information">
+      <meta name="description" content="Sportwebsite for Everyone!">
+      <link rel="stylesheet" type="text/css" href="style/subpage.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+   </head>
+ 
+   <body class="body-cycling">
+      <div id="mySidebar" class="sidebar">
+         <a href="javascript:void(0)" class="close" onclick="closeNav()">&times;</a>
+         <button class="dropdown-btn">HOME
+            <i class="fa fa-caret-down"></i>
+         </button>
+
+         <div class="dropdown-container">
+            <a href="index.html">Home</a>
+         </div>
+
+         <button class="dropdown-btn">FOOTBALL
+            <i class="fa fa-caret-down"></i>
+         </button>
+
+         <div class="dropdown-container">
+            <a href="football_rules.html">Rules</a>
+            <a href="football_teams_and_players.html">Teams</a>
+            <a href="football_other_websites.html">Other websites</a>
+         </div>
+
+         <button class="dropdown-btn">FORMULA 1
+            <i class="fa fa-caret-down"></i>
+         </button>
+
+         <div class="dropdown-container">
+            <a href="formule_1_rules.html">Rules</a>
+            <a href="formule_1_teams_and_coureurs.html">Teams</a>
+            <a href="formule_1_races.html">Races</a>
+            <a href="football_other_websites.html">Other websites</a>
+         </div>
+
+         <button class="dropdown-btn">CYCLING
+            <i class="fa fa-caret-down"></i>
+         </button>
+
+         <div class="dropdown-container">
+            <a href="cycling_rules.html">Rules</a>
+            <a href="cycling_teams_and_riders.html">Teams</a>
+            <a href="cycling_races.html">Races</a>
+            <a href="cycling_other_websites.html">Other websites</a>
+         </div>
+
+         <button class="dropdown-btn">SHORT TRACK
+            <i class="fa fa-caret-down"></i>
+         </button>
+
+         <div class="dropdown-container">
+            <a href="shorttrack_rules.html">Rules</a>
+            <a href="shorttrack_riders.html">Riders</a>
+            <a href="shorttrack_races.html">Races</a>
+            <a href="shorttrack_other_websites.html">Other websites</a>
+         </div>
+
+         <button class="dropdown-btn">CONTACT
+            <i class="fa fa-caret-down"></i>
+         </button>
+
+         <div class="dropdown-container">
+            <a href="contact.html">Contact</a>
+         </div>
+
+         <button id="hide1" onclick="openForm1('1d01').style.display='block'">LOGIN
+         </button>
+
+         <button  id="hide2" onclick="openForm2('regForm').style.display='block'">SIGN UP
+         </button>
+
+         <button  id="hide3" onclick="openForm3('myOverlay').style.display='block'">SEARCH
+         </button>
+
+         <button  id="hide4" onclick="openForm4('1d02').style.display='block'">SIGN OUT
+         </button>
+      </div>
+
+      <div class="navbar">
+         <a href="index.html"><div class="logo"></div></a>
+         <button class="openbtn topnavBtn1 margin-right" onclick="openNav()"><i class="fa fa-navicon"></i> &nbsp; Menu</button>
+         <button class="signout topnavBtn2" onclick="document.getElementById('id02').style.display='block'"><i class="fa fa-sign-out"></i> &nbsp; Sign out</button>
+         <button class="openBtn topnavBtn3" onclick="openSearch()"><i class="fa fa-search"></i> &nbsp; Search</button> 
+         <button class="register topnavBtn4" onclick="document.getElementById('regForm').style.display='block'" style="width:auto;"><i class="fa fa-id-badge"></i> &nbsp; Signup</button>
+         <button class="login topnavBtn5" onclick="document.getElementById('id01').style.display='block'" style="width:auto;"><i class="fa fa-user"></i> &nbsp; Login</button>
+
+         <div id="myOverlay" class="overlay">
+            <span class="close" onclick="closeSearch()" title="Close Overlay">&times;</span>
+            <div class="overlay-content">
+               <form action="action_page.php">
+                  <input type="text" placeholder="Search.." name="search">
+                  <button type="submit"><i class="fa fa-search"></i></button>
+               </form>
+            </div>
+         </div>
+
+         <div id="id01" class="modal">
+            <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+            <form class="modal-content" action="/action_page.php">
+               <div class="container">
+                  <h1>Login</h1>
+                  <p>Please fill in this form to login</p>
+
+                  <hr>
+
+                  <label for="email"><b>Email</b></label><br>
+                  <input type="text" placeholder="Enter Email" name="email" required>
+
+                  <label for="psw"><b>Password</b></label><br>
+                  <input type="password" placeholder="Enter Password" name="psw" required><br>
+
+                  <label for="psw-repeat"><b>Repeat Password</b></label><br>
+                  <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
+
+                  <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
+
+                  <div class="clearfix">
+                     <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+                     <button type="submit" class="signupbtn">Login</button>
+                  </div>
+               </div>
+            </form>
+         </div>
+
+         <form id="regForm" class="register" action="/action_page.php">
+            <div class="reg-container">
+               <span onclick="document.getElementById('regForm').style.display='none'" class="close" title="Close Modal">&times;</span>
+               <h1>Register:</h1>
+               <div class="tab">Name:
+                  <p><input placeholder="First name..." oninput="this.className = ''" name="fname"></p>
+                  <p><input placeholder="Last name..." oninput="this.className = ''" name="lname"></p>
+               </div>
+
+               <div class="tab">Contact Info:
+                  <p><input placeholder="E-mail..." oninput="this.className = ''" name="email"></p>
+                  <p><input placeholder="Phone..." oninput="this.className = ''" name="phone"></p>
+               </div>
+
+               <div class="tab">Birthday:
+                  <p><input placeholder="dd" oninput="this.className = ''" name="dd"></p>
+                  <p><input placeholder="mm" oninput="this.className = ''" name="nn"></p>
+                  <p><input placeholder="yyyy" oninput="this.className = ''" name="yyyy"></p>
+               </div>
+
+               <div class="tab">Login Info:
+                  <p><input placeholder="Username..." oninput="this.className = ''" name="uname"></p>
+                  <p><input placeholder="Password..." oninput="this.className = ''" name="pword" type="password"></p>
+               </div>
+
+               <div class="tab-button" style="overflow:auto;">
+                  <div style="float:right;">
+                     <button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
+                     <button type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
+                  </div>
+               </div>
+
+               <div style="text-align:center;margin-top:40px;">
+                  <span class="step"></span>
+                  <span class="step"></span>
+                  <span class="step"></span>
+                  <span class="step"></span>
+               </div>
+            </div>
+         </form>
+
+         <div id="id02" class="modal2">
+            <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
+            <form class="modal-content" action="/action_page.php">
+               <div class="container2">
+                  <h1>Delete Account</h1>
+                  <p>Are you sure you want to delete your account?</p>
+
+                  <hr>
+
+                  <div class="clearfix2">
+                     <button type="button" class="cancelbtn">Cancel</button>
+                     <button type="button" class="deletebtn">Delete</button>
+                  </div>
+               </div>
+            </form>
+         </div>
+      </div>
+
+      <div class="icon-bar-left">
+         <a href="error_page.html" class="fa fa-facebook"></a>
+         <a href="error_page.html" class="fa fa-twitter"></a>
+         <a href="error_page.html" class="fa fa-google"></a>
+         <a href="error_page.html" class="fa fa-linkedin"></a>
+         <a href="error_page.html" class="fa fa-youtube"></a>
+         <a href="error_page.html" class="fa fa-instagram"></a>
+      </div>
+
+      <div class="icon-bar-right">
+         <a href="error_page.html" class="fa fa-google"></a>
+         <a href="error_page.html" class="fa fa-pinterest"></a>
+         <a href="error_page.html" class="fa fa-snapchat-ghost"></a>
+         <a href="error_page.html" class="fa fa-skype"></a>
+         <a href="error_page.html" class="fa fa-vimeo"></a>
+      </div>
+
+         <div class="sidebar-subpage">
+            <h3><strong>ON THIS PAGE</strong></h3>
+            <ul>
+               <li><a href="#cycling">Cycling</a></li>
+               <li><a href="#history-cycling">History</a></li>
+               <li><a href="#modern-cycling">Modern cycling</a></li>
+               <li><a href="#competition-cycling">Competition</a></li>
+               <li><a href="#doping-cycling">Doping</a></li>
+            </ul>
+         </div>
+      
+      <main>
+         <div id="image">
+            <a href="https://en.wikipedia.org/wiki/Tadej_Poga%C4%8Dar" target="_blank"><img src="Images/qNt5oq8cN0qVdU1633604901-696x467.jpg" alt="Tadej Pogačar" title="Tadej Pogačar"></a>
+            <div class="caption">
+               Tadej Pogačar - <em>Photo: Wieler Revue</em>
+            </div>
+         </div>
+
+         <h3><strong><a id="cycling"></a>Cycling</strong></h3>
+         <p>
+            Cycling, use of a bicycle for sport, recreation, or transportation. The sport of cycling consists of professional
+            and amateur races, which are held mostly in continental Europe, the United States, and Asia. The recreational use of 
+            the bicycle is widespread in Europe and the United States. Use of the bicycle as a mode of transportation is 
+            particularly important in non-Western nations and in flatter countries, some of which, like the Netherlands, have a
+            widespread system of bicycle paths.
+         </p>
+
+         <h3><strong><a id="history-cycling"></a>Early history of the sport</strong></h3>
+         <p>
+            Cycling as a sport officially began on May 31, 1868, with a 1,200-metre (1,312-yard) race between the fountains and 
+            the entrance of Saint-Cloud Park (near Paris). The winner was James Moore, an 18-year-old expatriate Englishman from 
+            Paris. On November 7, 1869, the first city-to-city race was held between Paris and Rouen; again Moore was the winner,
+            having covered the 135 km (84 miles) in 10 hours 25 minutes, including time spent walking his bicycle up the steeper 
+            hills. While road racing became common within a few years in continental Europe, in England the deteriorated 
+            conditions of the roads made them unsuitable, and therefore the sport there focused on the track or time trials.
+         </p>
+
+         <div id="image">
+            <img src="Images/1.jpg">
+            <div class="caption">
+               Cycling in the early years - <em>Photo: Historiek</em>
+            </div>
+         </div>
+
+         <p>
+            In the United States the first recorded race was held on May 24, 1878, in Boston, two years after the start of 
+            professional baseball and 13 years before basketball was invented. Almost all of the early American racing was on 
+            tracks, in long races sometimes employing pacers who rode ahead of contestants at a fast speed and then dropped away. 
+            By the 1890s there were about 100 dirt, cement, or wooden tracks around the country, mainly in big cities. More than 
+            600 professionals traveled on this national circuit, which ranged from Boston to San Francisco, with competitions 
+            in such cities as St. Louis, Salt Lake City, Denver, and Los Angeles. The sport received an enormous publicity boost 
+            on June 30, 1899, when one of these riders, Charles M. Murphy, rode on a wooden track behind a Long Island Rail Road 
+            train and covered a mile in 57.8 seconds, earning the nickname of Mile-a-Minute Murphy.
+         </p>
+
+         <p>
+            A particularly grueling form of racing flourished in the United States in the 1890s: the six-day race, 142 hours 
+            (since the races usually started at midnight and ended, six days later, at 10 PM) of nonstop competition with prizes 
+            up to $10,000 and an international field of riders. This form of racing was transformed with the change from one-man 
+            teams to two-man teams in 1899, and six-day races retained their popularity well into the 1930s. While no longer held 
+            in the United States, these races continue to attract large crowds in Belgium, Italy, France, and Germany.
+         </p>
+
+         <h3><strong><a id="modern-cycling"></a>Modern sport racing</strong></h3>
+         <p>
+            The development of racing as a popular sport in Europe began in the 1890s with the improvement in road conditions and 
+            the introduction of some of the one-day classics that continue to this day (for example, the Paris-Roubaix race). 
+            After France and Belgium, races were introduced in Italy, Spain, and the Netherlands. In 1903 the 21-day-long Tour de 
+            France was inaugurated and has continued every year since except during World Wars I and II. Ranking just behind this
+            premier race are the grand three-week tours of Italy (the Giro d&apos;Italia) and Spain (the Vuelta a España). 
+            Usually, the Giro is held in May and June, the Tour de France in July, the Vuelta in September, and the World 
+            Championships in October. Prizes in these races are substantial, amounting to $2.5 million in the Tour de France alone.
+         </p>
+         
+         <div id="image">
+            <img src="Images/2.jpeg">
+            <div class="caption">
+               Modern cycling - <em>Photo: Cor Vos</em>
+            </div>
+         </div>
+
+         <p>
+            European road racing was under the sponsorship of bicycle manufacturers until the late 1920s, when national and 
+            regional teams were introduced. Trade sponsors returned after World War II but with the waning of bicycle 
+            manufacturers, teams began turning to various sponsors, including automobile manufacturers, insurance companies, and 
+            banks. The professional road-racing season now begins in January with races in Australia and Malaysia, continues from 
+            February through October in Europe and the United States, and closes, again in Asia, in November and December. For 
+            most riders, the season includes about 120 days of competition spread over eight months.
+         </p>
+
+         <p>
+            With the waning of six-day races during the Depression in the United States, American interest in cycling began to fade 
+            until the 1980s. American riders dominated the Olympic Games in Los Angeles in 1984, and in 1986 Greg LeMond won the first 
+            of his three Tours de France, rekindling American interest. In England, racing declined in popularity after the turn of 
+            the 20th century, with the advent of the automobile; despite the occasional Briton who makes a career as a professional 
+            on the Continent and a sporadic series of races, such as the Milk Race and the Prutour, both now defunct, the sport 
+            remains marginal. Hindering the growth of the sport in England is the public clamour that arises whenever a road is
+            closed for a bicycle race. In Asia and Australia, however, there is no such resistance, and the roads are usually 
+            lined with spectators for such races as the Tour Down Under in Australia, the Tour of Langkawi in Malaysia, and the 
+            Japan Cup. These races attract many professional teams from Europe and the United States. Many other Asian countries 
+            have races also, mainly for amateur teams from the region.
+         </p>
+
+         <p>
+            Road and track races for men were held at the first modern Olympic Games in 1896; women entered Olympic competition 
+            in road races in 1984 and track races in 1988. Mountain biking, a cross-country race over rough terrain, became an 
+            Olympic event for men and women at the 1996 Games in Atlanta. The Atlanta Games also marked the first Olympics at 
+            which professionals were allowed to enter the road race and time trial competitions.
+         </p>
+
+         <div class="text-information">
+            <p>
+               The text on this page is from <a href="https://www.britannica.com/" target="_blank"><em>Britannica</em></a>.<br>
+               Link to the source text: <a href="https://www.britannica.com/sports/cycling" target="_blank">https://www.britannica.com/sports/cycling</a>.
+            </p>
+
+            <p>
+               <em>Read more below.</em>
+            </p>
+         </div>
+
+         <h3><strong><a id="competition-cycling"></a>Competition</strong></h3>
+         <p>
+            The sport is governed overall by the Union Cycliste Internationale (UCI), which is based in Switzerland, and by each 
+            country&apos;s cycling federation. Amateur races are held for both men and women in local, regional, and national 
+            competition by age group, ranging upward in age from competitors 12 to 13 years old. In the World Championships, 
+            amateurs are no longer differentiated from professionals among men, but the sport is divided into those under 23, 
+            called espoirs (hopefuls), and those over that age. Categories of competition during the season include time trials, 
+            which can be an individual or team event; one-day, or classic, races in which distances can vary between 200 and 280 
+            km (124 to 175 miles) for professionals and 140 to 200 km (87 to 124 miles) for amateurs; and multiday, or stage, 
+            races, basically a series of classic races run on successive days. The winner of a stage race is the rider with 
+            lowest aggregate time for all stages. Also popular, especially in Britain and the United States, are criterium races, 
+            which are run over a relatively short distance of 4 to 5 km (2.5 to 3 miles) for a succession of laps totaling up to 
+            100 km (62 miles).
+         </p>
+         
+         <p>
+            Track racing events include the sprint, the pursuit, the one-kilometre time trial, the points race, and the keirin, 
+            or motor-paced race. Keirin is especially popular in Japan because betting on the outcome is legal there, much like a
+            horse or dog race. Some European track stars ride on the keirin circuit in Japan, both for the experience and for the 
+            salary. Cyclo-cross, or cross-country racing, established in the mid-1920s, covers rough terrain that may require 
+            racers to dismount and walk or run with their bicycles. Mountain biking, over rough terrain, but usually downhill 
+            rather than on the flat, is increasingly popular. One difference between cyclo-cross and mountain-bike racing is 
+            that cyclo-cross riders are allowed to ride up to three bicycles during a race, whereas in mountain-bike competition 
+            the cyclist must carry all the tools necessary to fix the bicycle, as only one bicycle may be used during a race. One 
+            other recent form of racing is bicycle motocross (BMX) racing, which can be traced to motocross racing. Racers 
+            (children and adults) ride on dirt tracks which feature a large number of jumps and turns. BMX racing is very popular 
+            in the United States, Europe, and Australia. In 2008 BMX racing made its Olympic debut at the Beijing Games in the 
+            form of a men&apos;s individual race and a women&apos;s individual race.
+         </p>
+
+         <h3><strong><a id="doping-cycling"></a>Doping</strong></h3>
+         <p>
+            The use of performance-enhancing drugs is considered to be widespread in cycling, especially after the scandal that 
+            shook the Tour de France in 1998 and resulted in the expulsion of one of the leading teams (the Festina team). To 
+            circumvent the medications prohibited by the UCI, many professional teams and individual riders employ doctors to 
+            administer drugs that are difficult to detect, such as erythropoietin (EPO), a hormone that acts to increase the 
+            level of red blood cells and thus the flow of oxygen to muscles. The UCI periodically checks riders for the level 
+            of red cells in their blood, with a limit of 50 percent (55 percent for riders from high-altitude regions); anything 
+            above that is regarded as an indication of the use of EPO and carries a two-year suspension. Stimulants and 
+            antifatigue drugs such as amphetamines are detectable and therefore outmoded performance-enhancing drugs.
+         </p>
+
+         <hr>
+         
+         <h3 class="share"><strong>Related articles</strong></h3>
+         <div id="related-container">
+            <div class="related-article">
+               <div class="mini-image">
+                  <a href="https://www.cyclingweekly.com/news"><img src="Images/12.webp"></a>
+               </div>
+
+               <p>
+                  <a href="https://www.cyclingweekly.com/news">
+                  <b>Cycling Weekly</b><br>
+                  Cycling Weekly profides a lot of information form the cycling world. <em><u>More</u></em></a>
+               </p>
+            </div>
+
+            <div class="related-article">
+               <div class="mini-image">
+                  <a href="https://www.cyclingnews.com/"><img src="Images/13.webp"></a>
+               </div>
+
+               <p>
+                  <a href="https://www.cyclingnews.com/">
+                  <b>CyclingNews</b><br>
+                  CyclingNews is always updated with the latest cycling news. <em><u>More</u></em></a>
+               </p>
+            </div>
+
+            <div class="related-article">
+               <div class="mini-image">
+                  <a href="https://www.procyclingstats.com/index.php"><img src="Images/14.webp"></a>
+               </div>
+
+               <p>
+                  <a href="https://www.procyclingstats.com/index.php">
+                  <b>ProCyclingStats</b><br>
+                  PCS provides the best cycling stats and is always updated. <em><u>More</u></em></a>
+               </p>
+            </div>
+         </div>
+         
+         <div class="share">
+            <h4><strong>SHARE</strong></h4>
+            <p>
+               <a href="error_page.html" target="_parent"><img src="Images/IMG_6081.jpg" width="40" height="40"></a>
+               <a href="error_page.html" target="_parent"><img src="Images/downloaden.png" width="40" height="40"></a>
+               <a href="error_page.html" target="_parent"><img src="Images/Mail_(iOS).svg.png" width="40" height="40"></a>
+               <a href="error_page.html" target="_parent"><img src="Images/Instagram_logo_2016.svg.webp" width="40" height="40"></a>
+               <a href="error_page.html" target="_parent"><img src="Images/downloaden (1).png" width="40" height="40"></a>
+            </p>
+
+            <p class="typing-error">
+               Did you see a typing error in this article? Let us know! <a href="contact.html" target="_parent" class="arrow">&rArr;</a>
+            </p>
+
+            <p class="typing-error">
+               Is the information on this page incorrect or incomplete? Contact us! <a href="contact.html" target="_parent" class="arrow">&rArr;</a>
+            </p>
+
+            <div id="message"></div>
+      </main>
+
+      <button class="open-button" onclick="openForm()"><i class="fa fa-comments"></i></button>
+
+      <div class="chat-popup" id="myForm">
+         <form action="/action_page.php" class="form-container">
+            <h1>Chat</h1>
+       
+            <label for="msg"><b>Message</b></label>
+            <textarea placeholder="Type message.." name="msg" required></textarea>
+       
+            <button type="submit" class="btn">Send</button>
+            <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+         </form>
+      </div>
+
+      <div class="to-top">
+         <a href="#"><i class="fa fa-arrow-up"></i></a>
+      </div>
+      
+      <div class="newsletter">
+         <div class="subscribe-info">
+            <h3>WorldSportz</h3>
+            <p>
+               Our main goal is to develop our website more and more and also o provide more and more information. Help us with that by subscribing to our newsletter. Thank you!
+            </p>
+         </div>
+
+         <form>
+            <label for="email">Enter your email:</label>
+            <input type="email" id="email" name="email" placeholder="example@gmail.com">
+            <button type="submit"><a href="error_page.html">SUBSCRIBE</a></button>
+         </form>
+
+         <div class="subscribe-info">
+            <h3>SPECIAL THANKS</h3>
+            <a href="https://www.w3schools.com/"><img src="Images/W3Schools_logo.svg.png"></a>
+            <p>
+               Here a special thanks to <a href="https://www.w3schools.com/">W3Schools</a>. Without them this website wouldn't exist in this form. Thanks!<br>
+            </p>
+
+            <p>
+               <a href="https://www.w3schools.com/">Visit their website: &rArr;</a> 
+            </p>
+         </div>
+      </div>
+
+      <footer>
+         <div class="footer-item">
+            <h3><strong>ABOUT US</strong></h3>
+            <p>
+               <a href="error_page.html" target="_parent">About us</a><br>
+               <a href="contact.html" target="_parent">Contact</a>
+            </p>
+         </div>
+
+         <div class="footer-item">
+            <h3><strong>LEGAL INFORMATION</strong></h3>
+            <p>
+               <a href="error_page.html" target="_parent">Manage Preferences</a><br>
+               <a href="error_page.html" target="_parent">Legal Information</a><br>
+               <a href="error_page.html" target="_parent">Privacy Policy</a><br>
+               <a href="error_page.html" target="_parent">Cookie Policy</a><br>
+               <a href="error_page.html" target="_parent">Terms of Use</a><br>
+               <a href="error_page.html" target="_parent">Copyright</a><br>
+               <a href="error_page.html" target="_parent">FAQ</a>
+            </p>
+         </div>
+
+         <div class="footer-item">
+            <h3><strong>OVERVIEW</strong></h3>
+            <p>
+               <a href="error_page.html" target="_parent">Global Sitemap</a><br>
+               <a href="error_page.html" target="_parent">Local Sitemap</a><br>
+               <a href="error_page.html" target="_parent">Accessibility</a><br>
+               <a href="error_page.html" target="_parent">Press</a><br>
+               <a href="error_page.html" target="_parent">Blog</a><br>
+            </p>
+         </div>
+
+         <div class="footer-item">
+            <h3><strong>FOLLOW US</strong></h3>
+            <p>
+               <a href="error_page.html" target="_parent"><img src="Images/IMG_6075.png" width="50" height="40"></a>
+               <a href="error_page.html" target="_parent"><img src="Images/IMG_6076.png" width="50" height="40"></a>
+               <a href="error_page.html" target="_parent"><img src="Images/IMG_6080.png" width="50" height="40"></a>
+               <a href="error_page.html" target="_parent"><img src="Images/IMG_6081.jpg" width="40" height="40"></a>
+            </p>
+            
+            <p>
+               &copy;2023, WorldSportz. All rights reserved.
+            </p>
+
+            <div class="logo">
+               <a href="index.html"><img src="Images/Image.jpeg"></a>
+            </div>
+         </div>
+      </footer>
+      <!-- Script Topnav -->
+      <script>
+         function openForm1() {
+            document.getElementById("id01").style.display = "block";
+         }
+         function openForm2() {
+            document.getElementById("regForm").style.display = "block";
+         }
+         function openForm3() {
+            document.getElementById("myOverlay").style.display = "block";
+         }
+         function openForm4() {
+            document.getElementById("id02").style.display = "block";
+         }
+      </script>
+
+            <!-- Script: Warning -->
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+            <script>
+               $(document).ready(function() {
+                  var i = 0;
+                  function nextMsg() {
+                     data = i % messages.length;
+                     $('#message').html(messages[data]).fadeIn(2000).delay(1000).fadeOut(2000,nextMsg);
+                     i++;
+                  };
+                  var messages = [
+                     "Attention! The text on this page may be out of date! Last update: 14-01-2023",
+                     "通知！此頁面上的文字可能已過時！最後更新: 14-01-2023",
+                     "Attention! The text on this page may be out of date! Last update: 14-01-2023",
+                     "¡NÓTESE BIEN! ¡El texto de esta página puede estar desactualizado! Última actualización: 14-01-2023",
+                     "Attention! The text on this page may be out of date! Last update: 14-01-2023",
+                     "ملحوظة! قد يكون النص الموجود في هذه الصفحة قديمًا! آخر تحديث: 14-2023-01-",
+                     "Attention! The text on this page may be out of date! Last update: 14-01-2023",
+                     "चेतावनी! इस पृष्ठ पर पाठ पुराना हो सकता है! अंतिम अद्यतन: 14-01-2023",
+                     "Attention! The text on this page may be out of date! Last update: 14-01-2023",
+                     "Aviso! O texto desta página pode estar desatualizado! Última atualização: 14-01-2023",
+                     "Attention! The text on this page may be out of date! Last update: 14-01-2023",
+                     "Примечание! Текст на этой странице может быть устаревшим! Последнее обновление: 14-01-2023",
+                     "Attention! The text on this page may be out of date! Last update: 14-01-2023",
+                     "警告！このページのテキストは古くなっている可能性があります。最終更新日: 2023 年 1 月 14 日",
+                     "Attention! The text on this page may be out of date! Last update: 14-01-2023",
+                     "Not! Bu sayfadaki metin güncel olmayabilir. Son güncelleme: 14 Ocak 2023",
+                     "Attention! The text on this page may be out of date! Last update: 14-01-2023",
+                     "Avvertimento! Il testo in questa pagina potrebbe non essere aggiornato. Ultimo aggiornamento: 14 gennaio 2023",
+                     "Attention! The text on this page may be out of date! Last update: 14-01-2023",
+                     "Warnung! Der Text auf dieser Seite kann veraltet sein. Zuletzt aktualisiert: 14. Januar 2023",
+                     "Attention! The text on this page may be out of date! Last update: 14-01-2023",
+                     "Let op! De tekst op deze pagina kan verouderd zijn. Laatst bijgewerkt: 14 januari 2023",
+                     "Attention! The text on this page may be out of date! Last update: 14-01-2023",
+                     "Averto! La teksto sur ĉi tiu paĝo eble estas malaktuala. Laste ĝisdatigita: la 14-an de januaro 2023",
+                     "Attention! The text on this page may be out of date! Last update: 14-01-2023",
+                     "Monitum! Textus huius paginae ex antiquiore esse potest. Last updated: January 14, 2023",
+                     "Attention! The text on this page may be out of date! Last update: 14-01-2023",
+                     "Παρατήρηση! Το κείμενο σε αυτήν τη σελίδα ενδέχεται να μην είναι ενημερωμένο. Τελευταία ενημέρωση: 14 Ιανουαρίου 2023",
+                     "Attention! The text on this page may be out of date! Last update: 14-01-2023",
+                  ].reverse();
+                  $('#message').hide();
+                  nextMsg();
+               });
+            </script>
+      
+            <!-- Script Chat -->
+            <script>
+               function openForm() {
+               document.getElementById("myForm").style.display = "block";
+               }
+               function closeForm() {
+               document.getElementById("myForm").style.display = "none";
+               }
+            </script>
+      
+            <!-- Script Side Navigation -->
+            <script>
+               function openNav() {
+               document.getElementById("mySidebar").style.width = "250px";
+               document.getElementById("main").style.marginLeft = "250px";
+               }
+               function closeNav() {
+               document.getElementById("mySidebar").style.width = "0";
+               document.getElementById("main").style.marginLeft = "0";
+               }
+            </script>
+      
+            <!-- Script Side Navigation Dropdown -->
+            <script>
+               var dropdown = document.getElementsByClassName("dropdown-btn");
+               var i;
+               for (i = 0; i < dropdown.length; i++) {
+                  dropdown[i].addEventListener("click", function() {
+                     this.classList.toggle("active");
+                     var dropdownContent = this.nextElementSibling;
+                     if (dropdownContent.style.display === "block") {
+                        dropdownContent.style.display = "none";
+                     } 
+                     else {
+                        dropdownContent.style.display = "block";
+                     }
+                  });
+               }
+            </script>
+            
+            <!-- Script Searchbar -->
+            <script>
+               function openSearch() {
+                  document.getElementById("myOverlay").style.display = "block";
+               }
+               function closeSearch() {
+                  document.getElementById("myOverlay").style.display = "none";
+               }
+            </script>
+            
+            <!-- Script Login -->
+            <script>
+               var modal = document.getElementById('id01');
+                  window.onclick = function(event) {
+                  if (event.target == modal) {
+                     modal.style.display = "none";
+                  }
+               }
+            </script>
+      
+            <!-- Script Register -->
+            <script>
+               var register = document.getElementById('regForm');
+               window.onclick = function(event) {
+                  if (event.target == regForm) {
+                     regForm.style.display = "none";
+                  }
+               }
+            </script>
+      
+            <script>
+               var currentTab = 0; 
+               showTab(currentTab); 
+             
+               function showTab(n) {
+               var x = document.getElementsByClassName("tab");
+               x[n].style.display = "block";
+               if (n == 0) {
+                 document.getElementById("prevBtn").style.display = "none";
+               } else {
+                 document.getElementById("prevBtn").style.display = "inline";
+               }
+               if (n == (x.length - 1)) {
+                 document.getElementById("nextBtn").innerHTML = "Submit";
+               } else {
+                 document.getElementById("nextBtn").innerHTML = "Next";
+               }
+               fixStepIndicator(n)
+               }
+             
+               function nextPrev(n) {
+                  var x = document.getElementsByClassName("tab");
+                  if (n == 1 && !validateForm()) return false;
+                  x[currentTab].style.display = "none";
+                  currentTab = currentTab + n;
+                  if (currentTab >= x.length) {
+                     document.getElementById("regForm").submit();
+                     return false;
+                  }
+                  showTab(currentTab);
+               }
+             
+               function validateForm() {
+                  var x, y, i, valid = true;
+                  x = document.getElementsByClassName("tab");
+                  y = x[currentTab].getElementsByTagName("input");
+                  for (i = 0; i < y.length; i++) {
+                     if (y[i].value == "") {
+                        y[i].className += " invalid";
+                        valid = false;
+                     }
+                  }
+                  if (valid) {
+                     document.getElementsByClassName("step")[currentTab].className += " finish";
+                  }
+                  return valid; 
+               }
+             
+               function fixStepIndicator(n) {
+                  var i, x = document.getElementsByClassName("step");
+                  for (i = 0; i < x.length; i++) {
+                     x[i].className = x[i].className.replace(" active", "");
+                  }
+                  x[n].className += " active";
+               }
+            </script>
+      
+            <!-- Script Sign Out -->
+            <script>
+               var modal2 = document.getElementById('id02');
+               window.onclick = function(event) {
+                  if (event.target == modal2) {
+                     modal2.style.display = "none";
+                  }
+               }
+            </script>
+   </body>
+</html>

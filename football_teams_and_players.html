@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <title>WorldSportz.com</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="author" content="Qi-Pee van der Spek">
+      <meta name="keywords" content="Sport, Sport Statistics, Sportnews, Football, Formule 1, Cycling, Shorttrack, Football Statistics, 
+      Formule 1 Statistics, Cycling Statistics, Shorttrack Statistics, Footballnews, Formule 1 news, Cyclingnews, Shorttrack news,
+      Fotball Information, Formule 1 Information, Cycling INformation, Shorttrack Information">
+      <meta name="description" content="Sportwebsite for Everyone!">
+      <link rel="stylesheet" type="text/css" href="style/subpage.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+   </head>
+ 
+   <body class="body-football">
+      <div id="mySidebar" class="sidebar">
+         <a href="javascript:void(0)" class="close" onclick="closeNav()">&times;</a>
+         <button class="dropdown-btn">HOME
+            <i class="fa fa-caret-down"></i>
+         </button>
+
+         <div class="dropdown-container">
+            <a href="index.html">Home</a>
+         </div>
+
+         <button class="dropdown-btn">FOOTBALL
+            <i class="fa fa-caret-down"></i>
+         </button>
+
+         <div class="dropdown-container">
+            <a href="football_rules.html">Rules</a>
+            <a href="football_teams_and_players.html">Teams</a>
+            <a href="football_other_websites.html">Other websites</a>
+         </div>
+
+         <button class="dropdown-btn">FORMULA 1
+            <i class="fa fa-caret-down"></i>
+         </button>
+
+         <div class="dropdown-container">
+            <a href="formule_1_rules.html">Rules</a>
+            <a href="formule_1_teams_and_coureurs.html">Teams</a>
+            <a href="formule_1_races.html">Races</a>
+            <a href="football_other_websites.html">Other websites</a>
+         </div>
+
+         <button class="dropdown-btn">CYCLING
+            <i class="fa fa-caret-down"></i>
+         </button>
+
+         <div class="dropdown-container">
+            <a href="cycling_rules.html">Rules</a>
+            <a href="cycling_teams_and_riders.html">Teams</a>
+            <a href="cycling_races.html">Races</a>
+            <a href="cycling_other_websites.html">Other websites</a>
+         </div>
+
+         <button class="dropdown-btn">SHORT TRACK
+            <i class="fa fa-caret-down"></i>
+         </button>
+
+         <div class="dropdown-container">
+            <a href="shorttrack_rules.html">Rules</a>
+            <a href="shorttrack_riders.html">Riders</a>
+            <a href="shorttrack_races.html">Races</a>
+            <a href="shorttrack_other_websites.html">Other websites</a>
+         </div>
+
+         <button class="dropdown-btn">CONTACT
+            <i class="fa fa-caret-down"></i>
+         </button>
+
+         <div class="dropdown-container">
+            <a href="contact.html">Contact</a>
+         </div>
+
+         <button id="hide1" onclick="openForm1('1d01').style.display='block'">LOGIN
+         </button>
+
+         <button  id="hide2" onclick="openForm2('regForm').style.display='block'">SIGN UP
+         </button>
+
+         <button  id="hide3" onclick="openForm3('myOverlay').style.display='block'">SEARCH
+         </button>
+
+         <button  id="hide4" onclick="openForm4('1d02').style.display='block'">SIGN OUT
+         </button>
+      </div>
+
+      <div class="navbar">
+         <a href="index.html"><div class="logo"></div></a>
+         <button class="openbtn topnavBtn1 margin-right" onclick="openNav()"><i class="fa fa-navicon"></i> &nbsp; Menu</button>
+         <button class="signout topnavBtn2" onclick="document.getElementById('id02').style.display='block'"><i class="fa fa-sign-out"></i> &nbsp; Sign out</button>
+         <button class="openBtn topnavBtn3" onclick="openSearch()"><i class="fa fa-search"></i> &nbsp; Search</button> 
+         <button class="register topnavBtn4" onclick="document.getElementById('regForm').style.display='block'" style="width:auto;"><i class="fa fa-id-badge"></i> &nbsp; Signup</button>
+         <button class="login topnavBtn5" onclick="document.getElementById('id01').style.display='block'" style="width:auto;"><i class="fa fa-user"></i> &nbsp; Login</button>
+
+         <div id="myOverlay" class="overlay">
+            <span class="close" onclick="closeSearch()" title="Close Overlay">&times;</span>
+            <div class="overlay-content">
+               <form action="action_page.php">
+                  <input type="text" placeholder="Search.." name="search">
+                  <button type="submit"><i class="fa fa-search"></i></button>
+               </form>
+            </div>
+         </div>
+
+         <div id="id01" class="modal">
+            <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+            <form class="modal-content" action="/action_page.php">
+               <div class="container">
+                  <h1>Login</h1>
+                  <p>Please fill in this form to login</p>
+
+                  <hr>
+
+                  <label for="email"><b>Email</b></label><br>
+                  <input type="text" placeholder="Enter Email" name="email" required>
+
+                  <label for="psw"><b>Password</b></label><br>
+                  <input type="password" placeholder="Enter Password" name="psw" required><br>
+
+                  <label for="psw-repeat"><b>Repeat Password</b></label><br>
+                  <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
+
+                  <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
+
+                  <div class="clearfix">
+                     <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+                     <button type="submit" class="signupbtn">Login</button>
+                  </div>
+               </div>
+            </form>
+         </div>
+
+         <form id="regForm" class="register" action="/action_page.php">
+            <div class="reg-container">
+               <span onclick="document.getElementById('regForm').style.display='none'" class="close" title="Close Modal">&times;</span>
+               <h1>Register:</h1>
+               <div class="tab">Name:
+                  <p><input placeholder="First name..." oninput="this.className = ''" name="fname"></p>
+                  <p><input placeholder="Last name..." oninput="this.className = ''" name="lname"></p>
+               </div>
+
+               <div class="tab">Contact Info:
+                  <p><input placeholder="E-mail..." oninput="this.className = ''" name="email"></p>
+                  <p><input placeholder="Phone..." oninput="this.className = ''" name="phone"></p>
+               </div>
+
+               <div class="tab">Birthday:
+                  <p><input placeholder="dd" oninput="this.className = ''" name="dd"></p>
+                  <p><input placeholder="mm" oninput="this.className = ''" name="nn"></p>
+                  <p><input placeholder="yyyy" oninput="this.className = ''" name="yyyy"></p>
+               </div>
+
+               <div class="tab">Login Info:
+                  <p><input placeholder="Username..." oninput="this.className = ''" name="uname"></p>
+                  <p><input placeholder="Password..." oninput="this.className = ''" name="pword" type="password"></p>
+               </div>
+
+               <div class="tab-button" style="overflow:auto;">
+                  <div style="float:right;">
+                     <button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
+                     <button type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
+                  </div>
+               </div>
+
+               <div style="text-align:center;margin-top:40px;">
+                  <span class="step"></span>
+                  <span class="step"></span>
+                  <span class="step"></span>
+                  <span class="step"></span>
+               </div>
+            </div>
+         </form>
+
+         <div id="id02" class="modal2">
+            <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
+            <form class="modal-content" action="/action_page.php">
+               <div class="container2">
+                  <h1>Delete Account</h1>
+                  <p>Are you sure you want to delete your account?</p>
+
+                  <hr>
+
+                  <div class="clearfix2">
+                     <button type="button" class="cancelbtn">Cancel</button>
+                     <button type="button" class="deletebtn">Delete</button>
+                  </div>
+               </div>
+            </form>
+         </div>
+      </div>
+
+      <div class="icon-bar-left">
+         <a href="error_page.html" class="fa fa-facebook"></a>
+         <a href="error_page.html" class="fa fa-twitter"></a>
+         <a href="error_page.html" class="fa fa-google"></a>
+         <a href="error_page.html" class="fa fa-linkedin"></a>
+         <a href="error_page.html" class="fa fa-youtube"></a>
+         <a href="error_page.html" class="fa fa-instagram"></a>
+      </div>
+
+      <div class="icon-bar-right">
+         <a href="error_page.html" class="fa fa-google"></a>
+         <a href="error_page.html" class="fa fa-pinterest"></a>
+         <a href="error_page.html" class="fa fa-snapchat-ghost"></a>
+         <a href="error_page.html" class="fa fa-skype"></a>
+         <a href="error_page.html" class="fa fa-vimeo"></a>
+      </div>
+      
+      <div class="sidebar-subpage">
+            <h3><strong>ON THIS PAGE</strong></h3>
+            <ul>
+            <li><a href="#div-CAF-football">CAF clubs</a></li>
+            <li><a href="#div-AFC-football">AFC clubs</a></li>
+            <li><a href="#div-UEFA-football">UEFA clubs</a></li>
+            <li><a href="#div-CONCACAF-football">CONCACAF clubs</a></li>
+            <li><a href="#div-OFC-football">OFC clubs</a></li>
+            <li><a href="#div-CONMEBOL-football">CONMEBOL clubs</a></li>
+         </ul>
+      </div>
+      
+      <main>
+         <h3><strong>Teams</strong></h3>
+         <h3><strong><a id="divisions-football"></a>FIFA Divisions</strong></h3>
+         <p>
+            The countries, teams and their leagues are organized into divisions as shown in the following list:
+         </p>
+         <ul>
+            <li>Africa (CAF)</li>
+            <li>Asia (AFC)</li>
+            <li>Europe (UEFA)</li>
+            <li>North, Central America and the Caribbean (CONCACAF)</li>
+            <li>Oceania (OFC)</li>
+            <li>South America (CONMEBOL)</li>
+         </ul>
+
+         <h4><strong><a id="div-CAF-football"></a>List of top-division football clubs in CAF countries</strong></h4>
+         <p>
+            This is a list of top-division association football clubs in CAF countries. CAF, the African football confederation, 
+            includes all African countries as members.
+         </p>
+
+         <p>
+            The French Overseas Department of Réunion and the autonomous island of Zanzibar have their own football associations 
+            which are associate members of CAF (but not members of FIFA). Mayotte, a French Overseas Territory, Saint Helena, a 
+            British Overseas Territory, and Western Sahara, a disputed territory, are not members of CAF or any other football 
+            confederation.
+         </p>
+
+         <p>
+            Each of the CAF member countries have their own football league systems. The clubs playing in each top-level league 
+            compete for the title as the country's club champions, and also for places in next season's CAF club competitions, 
+            i.e., the CAF Champions League and the CAF Confederation Cup. Due to promotion and relegation, the clubs playing in 
+            the top-level league in many countries are different every season.
+         </p>
+
+         <p>
+            View here a full list of top-division CAF football clubs:
+         </p>
+
+         <button><a href="https://en.wikipedia.org/wiki/List_of_top-division_football_clubs_in_CAF_countries" target="_blank">VIEW</a></button>
+
+         <h4><strong><a id="div-AFC-football"></a>List of top-division football clubs in AFC countries</strong></h4>
+         <p>
+            The List of top-division football clubs in Asian Football Confederation (AFC) countries. The Asian Football 
+            Confederation (AFC) includes all countries within the Asian territory as members, except Abkhazia, Armenia, Artsakh, 
+            Azerbaijan, Chagos Islands, Christmas Island, Cocos Islands, Cyprus, Northern Cyprus, Egypt, Georgia, Israel, 
+            Kazakhstan, Russia, South Ossetia and Turkey, as most of them are affiliated with another confederation, or none at 
+            all. The AFC also includes as members the Oceanian countries of Australia, Guam, and the Northern Mariana Islands.
+         </p>
+
+         <p>
+            Each of the AFC member countries have their own football league systems. The clubs playing in each top-level league 
+            compete for the title as the country's club champions, and also for places in next season's AFC club competitions: 
+            the AFC Champions League, the AFC Cup. Due to promotion and relegation, the clubs playing in the top-level league are 
+            different every season; however, some league systems (such as Australia) do not have promotion and relegation.
+         </p>
+
+         <p>
+            Some clubs play in a national football league other than their own country's. Where this is the case the club is 
+            noted as such. In particular, the Australian A-League includes a team from New Zealand, whose national federation 
+            is a member of the Oceania Football Confederation.
+         </p>
+
+         <p>
+            View here a full list of top-division AFC football clubs:
+         </p>
+
+         <button><a href="https://en.wikipedia.org/wiki/List_of_top-division_football_clubs_in_AFC_countries" target="_blank">VIEW</a></button>
+
+         <h5><strong><a id="second-div-AFC-football"></a>List of second division football clubs in AFC countries</strong></h5>
+         <p>
+            View here a full list of second division AFC football clubs:
+         </p>
+
+         <button><a href="https://en.wikipedia.org/wiki/List_of_second_division_football_clubs_in_AFC_countries" target="_blank">VIEW</a></button>
+
+         <h4><strong><a id="div-UEFA-football"></a>List of top-division football clubs in UEFA countries</strong></h4>
+         <p>
+            The Union of European Football Associations (UEFA) is the administrative and controlling body for European football. 
+            It consists of 55 member associations, each of which is responsible for governing football in their respective 
+            countries.
+         </p>
+
+         <p>
+            All widely recognised sovereign states located entirely within Europe are members, with the exceptions of the United 
+            Kingdom, Monaco and Vatican City. Eight states partially or entirely outside Europe are also members: Armenia, 
+            Azerbaijan, Cyprus, Georgia, Israel, Kazakhstan, Russia and Turkey. The United Kingdom is divided into the four 
+            separate football associations of England, Northern Ireland, Scotland, and Wales; each association has a separate 
+            UEFA membership. The Faroe Islands, an autonomous country of the Kingdom of Denmark, also has its own football 
+            association which is a member of UEFA. The football association of Gibraltar, a British Overseas Territory, was 
+            approved as a member by UEFA in 2013. Kosovo was approved as a member in 2016, even though it is claimed by Serbia 
+            and is not recognised by several other UEFA member states.
+         </p>
+
+         <p>
+            Each UEFA member has its own football league system, except Liechtenstein. Clubs playing in each top-level league 
+            compete for the title as the country's club champions. Clubs also compete in the league and national cup competitions 
+            for places in the following season's UEFA club competitions, the UEFA Champions League, UEFA Europa League and UEFA 
+            Europa Conference League. Due to promotion and relegation, the clubs playing in the top-level league are different 
+            every season, except in San Marino and Gibraltar where there is only one level.
+         </p>
+
+         <p>
+            View here a full list of top-division UEFA football clubs:
+         </p>
+
+         <button><a href="https://en.wikipedia.org/wiki/List_of_top-division_football_clubs_in_UEFA_countries" target="_blank">VIEW</a></button>
+
+         <h5><strong><a id="second-div-UEFA-football"></a>List of second division football clubs in UEFA countries</strong></h5>
+         <p>
+            View here a full list of second division UEFA football clubs:
+         </p>
+
+         <button><a href="https://en.wikipedia.org/wiki/List_of_second_division_football_clubs_in_UEFA_countries" target="_blank">VIEW</a></button>
+
+         <h4><strong><a id="div-CONCACAF-football"></a>List of top-division football clubs in CONCACAF countries</strong></h4>
+         <p>
+            This is a list of top-division association football clubs in CONCACAF countries. CONCACAF is the football 
+            confederation that oversees the sport in North America, Central America and the Caribbean, including the South 
+            American countries of Guyana, Suriname and French Guiana.
+         </p>
+
+         <p>
+            All countries and most of the dependent territories in this region have their own football associations which are 
+            members of CONCACAF, with the exceptions being Greenland and Saint-Pierre and Miquelon which are not members of 
+            CONCACAF or any other football confederation. The French Overseas Departments of French Guiana, Guadeloupe and 
+            Martinique, as well as Saint-Martin and Sint Maarten (the French and Dutch parts of the island of Saint Martin), also 
+            have their own football associations which are members of CONCACAF (but are not members of FIFA).
+         </p>
+
+         <p>
+            Each of the CONCACAF member countries have their own football league systems. The clubs playing in each top-level 
+            league compete for the title as the country's club champions, and also for places in next season's CONCACAF club 
+            competition, the CONCACAF Champions League (either directly for teams in the North American and Central American 
+            Zones, or through the CFU Club Championship for teams in the Caribbean Zone). Due to promotion and relegation, the 
+            clubs playing in the top-level league are different every season for some countries; however, some league systems 
+            (such as those of the United States and Canada) do not have promotion and relegation. The North American SuperLiga 
+            (North America) was an official tournament approved by the CONCACAF between the US/Canadian and Mexican leagues.
+         </p>     
+         
+         <p>
+            View here a full list of top-division CONCACAF football clubs:
+         </p>
+
+         <button><a href="https://en.wikipedia.org/wiki/List_of_top-division_football_clubs_in_CONCACAF_countries" target="_blank">VIEW</a></button>
+
+         <h4><strong><a id="div-OFC-football"></a>List of top-division football clubs in OFC countries</strong></h4>
+         <p>
+            This is a list of top-division association football clubs in OFC countries. OFC is the football confederation that overseas the sport in Oceania. 
+            The OFC is made up of 11 full members and 3 associate members.
+         </p>
+
+         <p>
+            The football associations of Australia and Guam are members of AFC, the Asian football confederation (Australia was 
+            previously an OFC member but had left), and the football association of Northern Mariana Islands is a provisional 
+            associate member of AFC (previously an OFC associate member but had left). The football associations of Kiribati, 
+            Niue and Tuvalu are associate members of OFC (but not members of FIFA). The sovereign states of the Marshall Islands, 
+            Federated States of Micronesia, Nauru and Palau, as well as the dependent territories of Norfolk Island, Pitcairn 
+            Islands, Tokelau, and Wallis and Futuna, are not members of OFC or any other football confederation.
+         </p>
+
+         <p>
+            Each of the OFC member countries have their own football league systems, as do some non-members. The clubs playing in 
+            each top-level league compete for the title as the country's club champions, and also for some countries, places in 
+            next season's OFC club competition, i.e., the OFC Champions League. Due to promotion and relegation, the clubs 
+            playing in the top-level league in some countries are different every season.
+         </p>
+
+         <p>
+            View here a full list of top-division OFC football clubs:
+         </p>
+
+         <button><a href="https://en.wikipedia.org/wiki/List_of_top-division_football_clubs_in_OFC_countries" target="_blank">VIEW</a></button>
+
+         <h4><strong><a id="div-CONMEBOL-football"></a>List of top-division football clubs in CONMEBOL countries</strong></h4>
+         <p>
+            The South American Football Confederation (CONMEBOL) is the administrative and controlling body for association 
+            football in most of South America. It consists of 10 member associations, each of which is responsible for governing 
+            football in their respective countries.[1] It includes all countries and territories within South America, with the 
+            exceptions of Guyana, French Guiana, Suriname, which are part of CONCACAF, and the disputed British and Argentine 
+            territory of the Falkland Islands, which is not a member of any confederation.[1] Each CONMEBOL member has its own 
+            football league system.[2] Clubs playing in each top-level league compete for the title as the country's club 
+            champion. Clubs also compete in the league and national cup competitions (if applicable) for places in the following 
+            season's CONMEBOL club competitions, the Copa Libertadores and Copa Sudamericana. Due to promotion and relegation, 
+            the clubs playing in the top-level league are different every season.
+         </p>
+
+         <p>
+            View here a full list of top-division CONMEBOL football clubs:
+         </p>
+
+         <button><a href="https://en.wikipedia.org/wiki/List_of_top-division_football_clubs_in_CONMEBOL_countries" target="_blank">VIEW</a></button>
+
+         <hr>
+         
+         <h3 class="share"><strong>Related articles</strong></h3>
+         <div id="related-container">
+            <div class="related-article">
+               <div class="mini-image">
+                  <a href="https://www.livescore.com/en/"><img src="Images/19.webp"></a>
+               </div>
+
+               <p>
+                  <a href="https://www.livescore.com/en/">
+                  <b>LiveScore</b><br>
+                  LiveScore profides the fastest match information. <em><u>More</u></em></a>
+               </p>
+            </div>
+
+            <div class="related-article">
+               <div class="mini-image">
+                  <a href="https://www.fifa.com/"><img src="Images/20.jpg"></a>
+               </div>
+
+               <p>
+                  <a href="https://www.fifa.com/">
+                  <b>FIFA</b><br>
+                  Visit the official FIFA website here. <em><u>More</u></em></a>
+               </p>
+            </div>
+
+            <div class="related-article">
+               <div class="mini-image">
+                  <a href="https://www.goal.com/en-us"><img src="Images/21.jpg"></a>
+               </div>
+
+               <p>
+                  <a href="https://www.goal.com/en-us">
+                  <b>GOAL.com</b><br>
+                  GOAL is a good place to find the information you want about football. <em><u>More</u></em></a>
+               </p>
+            </div>
+         </div>
+         
+         <div class="share">
+            <h4><strong>SHARE</strong></h4>
+            <p>
+               <a href="error_page.html" target="_parent"><img src="Images/IMG_6081.jpg" width="40" height="40"></a>
+               <a href="error_page.html" target="_parent"><img src="Images/downloaden.png" width="40" height="40"></a>
+               <a href="error_page.html" target="_parent"><img src="Images/Mail_(iOS).svg.png" width="40" height="40"></a>
+               <a href="error_page.html" target="_parent"><img src="Images/Instagram_logo_2016.svg.webp" width="40" height="40"></a>
+               <a href="error_page.html" target="_parent"><img src="Images/downloaden (1).png" width="40" height="40"></a>
+            </p>
+
+            <p class="typing-error">
+               Did you see a typing error in this article? Let us know! <a href="contact.html" target="_parent" class="arrow">&rArr;</a>
+            </p>
+
+            <p class="typing-error">
+               Is the information on this page incorrect or incomplete? Contact us! <a href="contact.html" target="_parent" class="arrow">&rArr;</a>
+            </p>
+
+            <div id="message"></div>
+      </main>
+
+      <button class="open-button" onclick="openForm()"><i class="fa fa-comments"></i></button>
+
+      <div class="chat-popup" id="myForm">
+         <form action="/action_page.php" class="form-container">
+            <h1>Chat</h1>
+       
+            <label for="msg"><b>Message</b></label>
+            <textarea placeholder="Type message.." name="msg" required></textarea>
+       
+            <button type="submit" class="btn">Send</button>
+            <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+         </form>
+      </div>
+
+      <div class="to-top">
+         <a href="#"><i class="fa fa-arrow-up"></i></a>
+      </div>
+
+      <div class="newsletter">
+         <div class="subscribe-info">
+            <h3>WorldSportz</h3>
+            <p>
+               Our main goal is to develop our website more and more and also o provide more and more information. Help us with that by subscribing to our newsletter. Thank you!
+            </p>
+         </div>
+
+         <form>
+            <label for="email">Enter your email:</label>
+            <input type="email" id="email" name="email" placeholder="example@gmail.com">
+            <button type="submit"><a href="error_page.html">SUBSCRIBE</a></button>
+         </form>
+
+         <div class="subscribe-info">
+            <h3>SPECIAL THANKS</h3>
+            <a href="https://www.w3schools.com/"><img src="Images/W3Schools_logo.svg.png"></a>
+            <p>
+               Here a special thanks to <a href="https://www.w3schools.com/">W3Schools</a>. Without them this website wouldn't exist in this form. Thanks!<br>
+            </p>
+
+            <p>
+               <a href="https://www.w3schools.com/">Visit their website: &rArr;</a> 
+            </p>
+         </div>
+      </div>
+
+      <footer>
+         <div class="footer-item">
+            <h3><strong>ABOUT US</strong></h3>
+            <p>
+               <a href="error_page.html" target="_parent">About us</a><br>
+               <a href="contact.html" target="_parent">Contact</a>
+            </p>
+         </div>
+
+         <div class="footer-item">
+            <h3><strong>LEGAL INFORMATION</strong></h3>
+            <p>
+               <a href="error_page.html" target="_parent">Manage Preferences</a><br>
+               <a href="error_page.html" target="_parent">Legal Information</a><br>
+               <a href="error_page.html" target="_parent">Privacy Policy</a><br>
+               <a href="error_page.html" target="_parent">Cookie Policy</a><br>
+               <a href="error_page.html" target="_parent">Terms of Use</a><br>
+               <a href="error_page.html" target="_parent">Copyright</a><br>
+               <a href="error_page.html" target="_parent">FAQ</a>
+            </p>
+         </div>
+
+         <div class="footer-item">
+            <h3><strong>OVERVIEW</strong></h3>
+            <p>
+               <a href="error_page.html" target="_parent">Global Sitemap</a><br>
+               <a href="error_page.html" target="_parent">Local Sitemap</a><br>
+               <a href="error_page.html" target="_parent">Accessibility</a><br>
+               <a href="error_page.html" target="_parent">Press</a><br>
+               <a href="error_page.html" target="_parent">Blog</a><br>
+            </p>
+         </div>
+
+         <div class="footer-item">
+            <h3><strong>FOLLOW US</strong></h3>
+            <p>
+               <a href="error_page.html" target="_parent"><img src="Images/IMG_6075.png" width="50" height="40"></a>
+               <a href="error_page.html" target="_parent"><img src="Images/IMG_6076.png" width="50" height="40"></a>
+               <a href="error_page.html" target="_parent"><img src="Images/IMG_6080.png" width="50" height="40"></a>
+               <a href="error_page.html" target="_parent"><img src="Images/IMG_6081.jpg" width="40" height="40"></a>
+            </p>
+            
+            <p>
+               &copy;2023, WorldSportz. All rights reserved.
+            </p>
+
+            <div class="logo">
+               <a href="index.html"><img src="Images/Image.jpeg"></a>
+            </div>
+         </div>
+      </footer>
+
+            <!-- Script Topnav -->
+            <script>
+               function openForm1() {
+                  document.getElementById("id01").style.display = "block";
+               }
+               function openForm2() {
+                  document.getElementById("regForm").style.display = "block";
+               }
+               function openForm3() {
+                  document.getElementById("myOverlay").style.display = "block";
+               }
+               function openForm4() {
+                  document.getElementById("id02").style.display = "block";
+               }
+            </script>
+
+      <!-- Script: Warning -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+      <script>
+         $(document).ready(function() {
+            var i = 0;
+            function nextMsg() {
+               data = i % messages.length;
+               $('#message').html(messages[data]).fadeIn(2000).delay(1000).fadeOut(2000,nextMsg);
+               i++;
+            };
+            var messages = [
+               "Attention! The text on this page may be out of date! Last update: 14-01-2023",
+               "通知！此頁面上的文字可能已過時！最後更新: 14-01-2023",
+               "Attention! The text on this page may be out of date! Last update: 14-01-2023",
+               "¡NÓTESE BIEN! ¡El texto de esta página puede estar desactualizado! Última actualización: 14-01-2023",
+               "Attention! The text on this page may be out of date! Last update: 14-01-2023",
+               "ملحوظة! قد يكون النص الموجود في هذه الصفحة قديمًا! آخر تحديث: 14-2023-01-",
+               "Attention! The text on this page may be out of date! Last update: 14-01-2023",
+               "चेतावनी! इस पृष्ठ पर पाठ पुराना हो सकता है! अंतिम अद्यतन: 14-01-2023",
+               "Attention! The text on this page may be out of date! Last update: 14-01-2023",
+               "Aviso! O texto desta página pode estar desatualizado! Última atualização: 14-01-2023",
+               "Attention! The text on this page may be out of date! Last update: 14-01-2023",
+               "Примечание! Текст на этой странице может быть устаревшим! Последнее обновление: 14-01-2023",
+               "Attention! The text on this page may be out of date! Last update: 14-01-2023",
+               "警告！このページのテキストは古くなっている可能性があります。最終更新日: 2023 年 1 月 14 日",
+               "Attention! The text on this page may be out of date! Last update: 14-01-2023",
+               "Not! Bu sayfadaki metin güncel olmayabilir. Son güncelleme: 14 Ocak 2023",
+               "Attention! The text on this page may be out of date! Last update: 14-01-2023",
+               "Avvertimento! Il testo in questa pagina potrebbe non essere aggiornato. Ultimo aggiornamento: 14 gennaio 2023",
+               "Attention! The text on this page may be out of date! Last update: 14-01-2023",
+               "Warnung! Der Text auf dieser Seite kann veraltet sein. Zuletzt aktualisiert: 14. Januar 2023",
+               "Attention! The text on this page may be out of date! Last update: 14-01-2023",
+               "Let op! De tekst op deze pagina kan verouderd zijn. Laatst bijgewerkt: 14 januari 2023",
+               "Attention! The text on this page may be out of date! Last update: 14-01-2023",
+               "Averto! La teksto sur ĉi tiu paĝo eble estas malaktuala. Laste ĝisdatigita: la 14-an de januaro 2023",
+               "Attention! The text on this page may be out of date! Last update: 14-01-2023",
+               "Monitum! Textus huius paginae ex antiquiore esse potest. Last updated: January 14, 2023",
+               "Attention! The text on this page may be out of date! Last update: 14-01-2023",
+               "Παρατήρηση! Το κείμενο σε αυτήν τη σελίδα ενδέχεται να μην είναι ενημερωμένο. Τελευταία ενημέρωση: 14 Ιανουαρίου 2023",
+               "Attention! The text on this page may be out of date! Last update: 14-01-2023",
+            ].reverse();
+            $('#message').hide();
+            nextMsg();
+         });
+      </script>
+
+      <!-- Script Chat -->
+      <script>
+         function openForm() {
+         document.getElementById("myForm").style.display = "block";
+         }
+         function closeForm() {
+         document.getElementById("myForm").style.display = "none";
+         }
+      </script>
+
+      <!-- Script Side Navigation -->
+      <script>
+         function openNav() {
+         document.getElementById("mySidebar").style.width = "250px";
+         document.getElementById("main").style.marginLeft = "250px";
+         }
+         function closeNav() {
+         document.getElementById("mySidebar").style.width = "0";
+         document.getElementById("main").style.marginLeft = "0";
+         }
+      </script>
+
+      <!-- Script Side Navigation Dropdown -->
+      <script>
+         var dropdown = document.getElementsByClassName("dropdown-btn");
+         var i;
+         for (i = 0; i < dropdown.length; i++) {
+            dropdown[i].addEventListener("click", function() {
+               this.classList.toggle("active");
+               var dropdownContent = this.nextElementSibling;
+               if (dropdownContent.style.display === "block") {
+                  dropdownContent.style.display = "none";
+               } 
+               else {
+                  dropdownContent.style.display = "block";
+               }
+            });
+         }
+      </script>
+      
+      <!-- Script Searchbar -->
+      <script>
+         function openSearch() {
+            document.getElementById("myOverlay").style.display = "block";
+         }
+         function closeSearch() {
+            document.getElementById("myOverlay").style.display = "none";
+         }
+      </script>
+      
+      <!-- Script Login -->
+      <script>
+         var modal = document.getElementById('id01');
+            window.onclick = function(event) {
+            if (event.target == modal) {
+               modal.style.display = "none";
+            }
+         }
+      </script>
+
+      <!-- Script Register -->
+      <script>
+         var register = document.getElementById('regForm');
+         window.onclick = function(event) {
+            if (event.target == regForm) {
+               regForm.style.display = "none";
+            }
+         }
+      </script>
+
+      <script>
+         var currentTab = 0; 
+         showTab(currentTab); 
+       
+         function showTab(n) {
+         var x = document.getElementsByClassName("tab");
+         x[n].style.display = "block";
+         if (n == 0) {
+           document.getElementById("prevBtn").style.display = "none";
+         } else {
+           document.getElementById("prevBtn").style.display = "inline";
+         }
+         if (n == (x.length - 1)) {
+           document.getElementById("nextBtn").innerHTML = "Submit";
+         } else {
+           document.getElementById("nextBtn").innerHTML = "Next";
+         }
+         fixStepIndicator(n)
+         }
+       
+         function nextPrev(n) {
+            var x = document.getElementsByClassName("tab");
+            if (n == 1 && !validateForm()) return false;
+            x[currentTab].style.display = "none";
+            currentTab = currentTab + n;
+            if (currentTab >= x.length) {
+               document.getElementById("regForm").submit();
+               return false;
+            }
+            showTab(currentTab);
+         }
+       
+         function validateForm() {
+            var x, y, i, valid = true;
+            x = document.getElementsByClassName("tab");
+            y = x[currentTab].getElementsByTagName("input");
+            for (i = 0; i < y.length; i++) {
+               if (y[i].value == "") {
+                  y[i].className += " invalid";
+                  valid = false;
+               }
+            }
+            if (valid) {
+               document.getElementsByClassName("step")[currentTab].className += " finish";
+            }
+            return valid; 
+         }
+       
+         function fixStepIndicator(n) {
+            var i, x = document.getElementsByClassName("step");
+            for (i = 0; i < x.length; i++) {
+               x[i].className = x[i].className.replace(" active", "");
+            }
+            x[n].className += " active";
+         }
+      </script>
+
+      <!-- Script Sign Out -->
+      <script>
+         var modal2 = document.getElementById('id02');
+         window.onclick = function(event) {
+            if (event.target == modal2) {
+               modal2.style.display = "none";
+            }
+         }
+      </script>
+   </body>
+</html>

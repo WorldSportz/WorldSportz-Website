@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <title>WorldSportz.com</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="author" content="Qi-Pee van der Spek">
+      <meta name="keywords" content="Sport, Sport Statistics, Sportnews, Football, Formule 1, Cycling, Shorttrack, Football Statistics, 
+      Formule 1 Statistics, Cycling Statistics, Shorttrack Statistics, Footballnews, Formule 1 news, Cyclingnews, Shorttrack news,
+      Fotball Information, Formule 1 Information, Cycling INformation, Shorttrack Information">
+      <meta name="description" content="Sportwebsite for Everyone!">
+      <link rel="stylesheet" type="text/css" href="style/subpage.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+   </head>
+ 
+   <body class="body-football">
+      <div id="mySidebar" class="sidebar">
+         <a href="javascript:void(0)" class="close" onclick="closeNav()">&times;</a>
+         <button class="dropdown-btn">HOME
+            <i class="fa fa-caret-down"></i>
+         </button>
+
+         <div class="dropdown-container">
+            <a href="index.html">Home</a>
+         </div>
+
+         <button class="dropdown-btn">FOOTBALL
+            <i class="fa fa-caret-down"></i>
+         </button>
+
+         <div class="dropdown-container">
+            <a href="football_rules.html">Rules</a>
+            <a href="football_teams_and_players.html">Teams</a>
+            <a href="football_other_websites.html">Other websites</a>
+         </div>
+
+         <button class="dropdown-btn">FORMULA 1
+            <i class="fa fa-caret-down"></i>
+         </button>
+
+         <div class="dropdown-container">
+            <a href="formule_1_rules.html">Rules</a>
+            <a href="formule_1_teams_and_coureurs.html">Teams</a>
+            <a href="formule_1_races.html">Races</a>
+            <a href="football_other_websites.html">Other websites</a>
+         </div>
+
+         <button class="dropdown-btn">CYCLING
+            <i class="fa fa-caret-down"></i>
+         </button>
+
+         <div class="dropdown-container">
+            <a href="cycling_rules.html">Rules</a>
+            <a href="cycling_teams_and_riders.html">Teams</a>
+            <a href="cycling_races.html">Races</a>
+            <a href="cycling_other_websites.html">Other websites</a>
+         </div>
+
+         <button class="dropdown-btn">SHORT TRACK
+            <i class="fa fa-caret-down"></i>
+         </button>
+
+         <div class="dropdown-container">
+            <a href="shorttrack_rules.html">Rules</a>
+            <a href="shorttrack_riders.html">Riders</a>
+            <a href="shorttrack_races.html">Races</a>
+            <a href="shorttrack_other_websites.html">Other websites</a>
+         </div>
+
+         <button class="dropdown-btn">CONTACT
+            <i class="fa fa-caret-down"></i>
+         </button>
+
+         <div class="dropdown-container">
+            <a href="contact.html">Contact</a>
+         </div>
+
+         <button id="hide1" onclick="openForm1('1d01').style.display='block'">LOGIN
+         </button>
+
+         <button  id="hide2" onclick="openForm2('regForm').style.display='block'">SIGN UP
+         </button>
+
+         <button  id="hide3" onclick="openForm3('myOverlay').style.display='block'">SEARCH
+         </button>
+
+         <button  id="hide4" onclick="openForm4('1d02').style.display='block'">SIGN OUT
+         </button>
+      </div>
+
+      <div class="navbar">
+         <a href="index.html"><div class="logo"></div></a>
+         <button class="openbtn topnavBtn1 margin-right" onclick="openNav()"><i class="fa fa-navicon"></i> &nbsp; Menu</button>
+         <button class="signout topnavBtn2" onclick="document.getElementById('id02').style.display='block'"><i class="fa fa-sign-out"></i> &nbsp; Sign out</button>
+         <button class="openBtn topnavBtn3" onclick="openSearch()"><i class="fa fa-search"></i> &nbsp; Search</button> 
+         <button class="register topnavBtn4" onclick="document.getElementById('regForm').style.display='block'" style="width:auto;"><i class="fa fa-id-badge"></i> &nbsp; Signup</button>
+         <button class="login topnavBtn5" onclick="document.getElementById('id01').style.display='block'" style="width:auto;"><i class="fa fa-user"></i> &nbsp; Login</button>
+
+         <div id="myOverlay" class="overlay">
+            <span class="close" onclick="closeSearch()" title="Close Overlay">&times;</span>
+            <div class="overlay-content">
+               <form action="action_page.php">
+                  <input type="text" placeholder="Search.." name="search">
+                  <button type="submit"><i class="fa fa-search"></i></button>
+               </form>
+            </div>
+         </div>
+
+         <div id="id01" class="modal">
+            <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+            <form class="modal-content" action="/action_page.php">
+               <div class="container">
+                  <h1>Login</h1>
+                  <p>Please fill in this form to login</p>
+
+                  <hr>
+
+                  <label for="email"><b>Email</b></label><br>
+                  <input type="text" placeholder="Enter Email" name="email" required>
+
+                  <label for="psw"><b>Password</b></label><br>
+                  <input type="password" placeholder="Enter Password" name="psw" required><br>
+
+                  <label for="psw-repeat"><b>Repeat Password</b></label><br>
+                  <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
+
+                  <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
+
+                  <div class="clearfix">
+                     <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+                     <button type="submit" class="signupbtn">Login</button>
+                  </div>
+               </div>
+            </form>
+         </div>
+
+         <form id="regForm" class="register" action="/action_page.php">
+            <div class="reg-container">
+               <span onclick="document.getElementById('regForm').style.display='none'" class="close" title="Close Modal">&times;</span>
+               <h1>Register:</h1>
+               <div class="tab">Name:
+                  <p><input placeholder="First name..." oninput="this.className = ''" name="fname"></p>
+                  <p><input placeholder="Last name..." oninput="this.className = ''" name="lname"></p>
+               </div>
+
+               <div class="tab">Contact Info:
+                  <p><input placeholder="E-mail..." oninput="this.className = ''" name="email"></p>
+                  <p><input placeholder="Phone..." oninput="this.className = ''" name="phone"></p>
+               </div>
+
+               <div class="tab">Birthday:
+                  <p><input placeholder="dd" oninput="this.className = ''" name="dd"></p>
+                  <p><input placeholder="mm" oninput="this.className = ''" name="nn"></p>
+                  <p><input placeholder="yyyy" oninput="this.className = ''" name="yyyy"></p>
+               </div>
+
+               <div class="tab">Login Info:
+                  <p><input placeholder="Username..." oninput="this.className = ''" name="uname"></p>
+                  <p><input placeholder="Password..." oninput="this.className = ''" name="pword" type="password"></p>
+               </div>
+
+               <div class="tab-button" style="overflow:auto;">
+                  <div style="float:right;">
+                     <button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
+                     <button type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
+                  </div>
+               </div>
+
+               <div style="text-align:center;margin-top:40px;">
+                  <span class="step"></span>
+                  <span class="step"></span>
+                  <span class="step"></span>
+                  <span class="step"></span>
+               </div>
+            </div>
+         </form>
+
+         <div id="id02" class="modal2">
+            <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
+            <form class="modal-content" action="/action_page.php">
+               <div class="container2">
+                  <h1>Delete Account</h1>
+                  <p>Are you sure you want to delete your account?</p>
+
+                  <hr>
+
+                  <div class="clearfix2">
+                     <button type="button" class="cancelbtn">Cancel</button>
+                     <button type="button" class="deletebtn">Delete</button>
+                  </div>
+               </div>
+            </form>
+         </div>
+      </div>
+
+      <div class="icon-bar-left">
+         <a href="error_page.html" class="fa fa-facebook"></a>
+         <a href="error_page.html" class="fa fa-twitter"></a>
+         <a href="error_page.html" class="fa fa-google"></a>
+         <a href="error_page.html" class="fa fa-linkedin"></a>
+         <a href="error_page.html" class="fa fa-youtube"></a>
+         <a href="error_page.html" class="fa fa-instagram"></a>
+      </div>
+
+      <div class="icon-bar-right">
+         <a href="error_page.html" class="fa fa-google"></a>
+         <a href="error_page.html" class="fa fa-pinterest"></a>
+         <a href="error_page.html" class="fa fa-snapchat-ghost"></a>
+         <a href="error_page.html" class="fa fa-skype"></a>
+         <a href="error_page.html" class="fa fa-vimeo"></a>
+      </div>
+
+         <div class="sidebar-subpage">
+            <h3><strong>ON THIS PAGE</strong></h3>
+            <ul>
+               <li><a href="#football">Football</a></li>
+               <li><a href="#positions-pitch-football">Positions</a></li>
+               <li><a href="#rules-football">Rules</a></li>
+               <li><a href="#offside-rule-football">Offside rule</a></li>
+               <li><a href="#five-fun-facts-football">Facts</a></li>
+            </ul>
+         </div>
+      
+      <main>
+         <h3><strong><a id="football"></a>Football</strong></h3>
+         <p>
+            Football is a team sport in which two teams play against each other to score their spherical ball in the other 
+            opponent's net (what we call a &apos;goal&apos;).
+         </p>
+         
+         <h3><strong><a id="positions-pitch-football"></a>Football positions on the pitch:</strong></h3>
+         <p>
+            <ul>
+               <li>
+                  Goalkeeper - The keeper stays in the net and protects it trying to stop and save balls from going in their goal.
+               </li>
+               <li>
+                  Left/Right Fullback - positioned on the right/left side of the pitch and is a defending position.
+               </li>
+               <Li>
+                  Centre Back - Their role is to defend the central side of the pitch.
+               </Li>
+               <li>
+                  Left/Right Midfielder - These players can also be referred to as 'wingers' and they stay wide trying to pull 
+                  the opponent’s defence to create space to achieve a goal.
+               </li>
+               <li>
+                  Central Midfielder - Plays defensively and offensively, they are responsible for kicking the ball strategically 
+                  to other players.
+               </li>
+               <li>
+                  Striker - This is an offensive position and is positioned nearest to the opposing team’s goal. Their main job 
+                  is to score a goal.
+               </li>
+               <li>
+                  Attacking Midfielder - These players sit between the midfield and offensive line, they must have good dribbling 
+                  skills. Their main job is to create scoring opportunities.
+               </li>
+            </ul>      
+         </p>
+
+         <div id="image">
+            <img src="Images/4.png">
+            <div class="caption">
+               Football positions  - <em>Photo: American Coaching Soccer.com</em>
+            </div>
+         </div>
+
+         <h3><strong><a id="rules-football"></a>Football rules</strong></h3>
+         <p>
+            <ul>
+               <li>
+                  Each match is 45 minutes long with two halves to allow for a 15-minute break in between.
+               </li>
+               <li>
+                  No player (apart from the goalkeeper) should touch the ball if a player touches the ball the opposing team 
+                  gets a penalty and is called ‘handball’.
+               </li>
+               <li>
+                  A maximum of 11 players are allowed and a minimum of 7.
+               </li>
+               <li>
+                  To score a goal the ball must be in the opposing teams net and must be fully in, meaning it has successfully 
+                  crossed the line, the goal can be scored from any part of the body apart from your hands.
+               </li>
+               <li>
+                  The football used must be 58-61cm and be a circular shape.
+               </li>
+               <li>
+                  Players must wear protective gear including shin pads and the correct boots.
+               </li>
+               <li>
+                  Each side is allowed a maximum of three substitutions each, in case any player isinjured or the game rolls into 
+                  extra time.
+               </li>
+               <li>
+                  The winning team is the one who scores the most goals. If a match results in both teams scoring the same, the 
+                  match will end in a draw. If it’s a cup game extra time can be added which is an extra 30 minutes.
+               </li>
+               <li>
+                  Each game must have a referee and two assistants. It’s the referee's job to make sure the game is being played 
+                  fair, they can rule penalties, plus give yellow and red cards.
+               </li>
+               <li>
+                  A yellow card is a warning, two of them would result in a red card and a player being taken off the pitch. If 
+                  this is the case a player in this situation cannot be replaced.
+               </li>
+               <li>
+                  If a ball goes out of the pitch (out of play) then it can be played as a ‘throw in’ in which a player throws 
+                  the ball back into the game.
+               </li>
+               <li>
+                  If a ball goes out of play on the baseline of an attacking player, they get a goal kick (e.g penalty) But if it 
+                  comes from a defending player it’s a corner kick.
+               </li>
+            </ul>
+         </p>
+
+         <h3><strong><a id="offside-rule-football"></a>The Offside Rule in Football</strong></h3>
+         <p>
+            Offside can be called when an attacking player is in front of the last defender when the pass is played through to them. 
+            The offside area is designed to discourage players from simply hanging around the opponent’s goal waiting for a pass. To be 
+            onside they must be placed behind the last defender when the ball is played to them. If the player is in front of that last 
+            defender then he is deemed to be offside and free kick to the defending team will be called.
+         </p>
+
+         <div id="image">
+            <img src="Images/5.webp">
+            <div class="caption">
+               Offside  - <em>Photo: KreedOn</em>
+            </div>
+         </div>
+
+         <p>
+            A player cannot be caught offside in their own half. The goalkeeper does not count as a defender. If the ball is played 
+            backwards and the player is in front of the last defender then he is deemed to be not offside.
+         </p>
+       
+         <div class="text-information">
+            <p>
+               The text on this page is from <a href="https://www.twinkl.nl/" target="_blank"><em>Twinkl</em></a> and<a href="https://www.rulesofsport.com/" target="_blank"><em> Rules of Sport.com</em></a><br>
+               Link to the source text: <a href="https://www.twinkl.nl/teaching-wiki/football" target="_blank">https://www.twinkl.nl/teaching-wiki/football</a> and 
+               <a href="https://www.rulesofsport.com/sports/football.html" target="_blank"> https://www.rulesofsport.com/
+                  sports/football.html</a>.
+  
+            <p>
+               <em>Read more below.</em>
+            </p>
+         </div>
+
+         <h3><strong>Basic Football Skills Needed to Play the game</strong></h3>
+         <p>
+            To be able to play the game successfully there are a few basic football skills that need to be mastered to achieve the best result. Football players regularly practice these in their training to perfect and master them.
+            <ul>
+               <li>
+                  Dribbling skills - This is a vital skill that involves skillfully controlling the ball. This can firstly be 
+                  taught by dribbling the ball around cones and build it up from there. Dribbling comes into practice throughout 
+                  the game when passing the ball from player to player and dodging opponents.
+               </li>
+               <li>
+                  Accuracy - This is crucial to learn when passing the ball in a skilful and tactical manner, to avoid the 
+                  opposing team gaining control of the ball.
+               </li>
+               <li>
+                  Spatial Awareness - This is important as it’s vital to stay to your correct area of the pitch and to 
+                  successfully play your position correctly.
+               </li>
+               <li>
+                  Communication Skills - Good listening and communication skills are another important skill as without them the 
+                  game will not be successful. It’s important to listen to your teammates to tactfully play the game and get the 
+                  best result.
+               </li>
+               <li>
+                  Teamwork - It’s important that everyone playing the game knows and understands their role and responsibilities. 
+                  It’s also vital for each player to value everyone’s efforts and come together as a team to achieve a team win.
+               </li>
+               <li>
+                  Master these five basic football skills and you’ll stand a great chance of winning with a solid formed team.
+               </li>
+            </ul>
+         </p>
+         
+         <h3><strong><a id="five-fun-facts-football"></a>Five Fun Football Facts</strong></h3>
+         <p>
+            <ul>
+               <li>
+                  Football is believed to be the most-watched sport in the world.
+               </li>
+               <Li>
+                  Only America and Canada call the sport soccer.
+               </Li>
+               <li>
+                  It’s believed football originated from China in 476 B.C.
+               </li>
+               <li>
+                  Neil Armstrong (the first man on the moon) reportedly wanted to take a football with him but sadly NASA didn’t permit this.
+               </li>
+               <li>
+                  It’s estimated that players run around 9.65km each game, that’s roughly around 5 miles.
+               </li>
+            </ul>
+         </p>
+
+         <hr>
+
+         <h3 class="share"><strong>Related articles</strong></h3>
+         <div id="related-container">
+            <div class="related-article">
+               <div class="mini-image">
+                  <a href="https://www.livescore.com/en/"><img src="Images/19.webp"></a>
+               </div>
+
+               <p>
+                  <a href="https://www.livescore.com/en/">
+                  <b>LiveScore</b><br>
+                  LiveScore profides the fastest match information. <em><u>More</u></em></a>
+               </p>
+            </div>
+
+            <div class="related-article">
+               <div class="mini-image">
+                  <a href="https://www.fifa.com/"><img src="Images/20.jpg"></a>
+               </div>
+
+               <p>
+                  <a href="https://www.fifa.com/">
+                  <b>FIFA</b><br>
+                  Visit the official FIFA website here. <em><u>More</u></em></a>
+               </p>
+            </div>
+
+            <div class="related-article">
+               <div class="mini-image">
+                  <a href="https://www.goal.com/en-us"><img src="Images/21.jpg"></a>
+               </div>
+
+               <p>
+                  <a href="https://www.goal.com/en-us">
+                  <b>GOAL.com</b><br>
+                  GOAL is a good place to find the information you want about football. <em><u>More</u></em></a>
+               </p>
+            </div>
+         </div>
+         
+         <div class="share">
+            <h4><strong>SHARE</strong></h4>
+            <p>
+               <a href="error_page.html" target="_parent"><img src="Images/IMG_6081.jpg" width="40" height="40"></a>
+               <a href="error_page.html" target="_parent"><img src="Images/downloaden.png" width="40" height="40"></a>
+               <a href="error_page.html" target="_parent"><img src="Images/Mail_(iOS).svg.png" width="40" height="40"></a>
+               <a href="error_page.html" target="_parent"><img src="Images/Instagram_logo_2016.svg.webp" width="40" height="40"></a>
+               <a href="error_page.html" target="_parent"><img src="Images/downloaden (1).png" width="40" height="40"></a>
+            </p>
+
+            <p class="typing-error">
+               Did you see a typing error in this article? Let us know! <a href="contact.html" target="_parent" class="arrow">&rArr;</a>
+            </p>
+
+            <p class="typing-error">
+               Is the information on this page incorrect or incomplete? Contact us! <a href="contact.html" target="_parent" class="arrow">&rArr;</a>
+            </p>
+
+            <div id="message"></div>
+
+            <div class="to-top">
+      </main>
+
+      <button class="open-button" onclick="openForm()"><i class="fa fa-comments"></i></button>
+
+      <div class="chat-popup" id="myForm">
+         <form action="/action_page.php" class="form-container">
+            <h1>Chat</h1>
+       
+            <label for="msg"><b>Message</b></label>
+            <textarea placeholder="Type message.." name="msg" required></textarea>
+       
+            <button type="submit" class="btn">Send</button>
+            <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+         </form>
+      </div>
+
+      <div class="to-top">
+         <a href="#"><i class="fa fa-arrow-up"></i></a>
+      </div>
+
+      <div class="newsletter">
+         <div class="subscribe-info">
+            <h3>WorldSportz</h3>
+            <p>
+               Our main goal is to develop our website more and more and also o provide more and more information. Help us with that by subscribing to our newsletter. Thank you!
+            </p>
+         </div>
+
+         <form>
+            <label for="email">Enter your email:</label>
+            <input type="email" id="email" name="email" placeholder="example@gmail.com">
+            <button type="submit"><a href="error_page.html">SUBSCRIBE</a></button>
+         </form>
+
+         <div class="subscribe-info">
+            <h3>SPECIAL THANKS</h3>
+            <a href="https://www.w3schools.com/"><img src="Images/W3Schools_logo.svg.png"></a>
+            <p>
+               Here a special thanks to <a href="https://www.w3schools.com/">W3Schools</a>. Without them this website wouldn't exist in this form. Thanks!<br>
+            </p>
+
+            <p>
+               <a href="https://www.w3schools.com/">Visit their website: &rArr;</a> 
+            </p>
+         </div>
+      </div>
+
+      <footer>
+         <div class="footer-item">
+            <h3><strong>ABOUT US</strong></h3>
+            <p>
+               <a href="error_page.html" target="_parent">About us</a><br>
+               <a href="contact.html" target="_parent">Contact</a>
+            </p>
+         </div>
+
+         <div class="footer-item">
+            <h3><strong>LEGAL INFORMATION</strong></h3>
+            <p>
+               <a href="error_page.html" target="_parent">Manage Preferences</a><br>
+               <a href="error_page.html" target="_parent">Legal Information</a><br>
+               <a href="error_page.html" target="_parent">Privacy Policy</a><br>
+               <a href="error_page.html" target="_parent">Cookie Policy</a><br>
+               <a href="error_page.html" target="_parent">Terms of Use</a><br>
+               <a href="error_page.html" target="_parent">Copyright</a><br>
+               <a href="error_page.html" target="_parent">FAQ</a>
+            </p>
+         </div>
+
+         <div class="footer-item">
+            <h3><strong>OVERVIEW</strong></h3>
+            <p>
+               <a href="error_page.html" target="_parent">Global Sitemap</a><br>
+               <a href="error_page.html" target="_parent">Local Sitemap</a><br>
+               <a href="error_page.html" target="_parent">Accessibility</a><br>
+               <a href="error_page.html" target="_parent">Press</a><br>
+               <a href="error_page.html" target="_parent">Blog</a><br>
+            </p>
+         </div>
+
+         <div class="footer-item">
+            <h3><strong>FOLLOW US</strong></h3>
+            <p>
+               <a href="error_page.html" target="_parent"><img src="Images/IMG_6075.png" width="50" height="40"></a>
+               <a href="error_page.html" target="_parent"><img src="Images/IMG_6076.png" width="50" height="40"></a>
+               <a href="error_page.html" target="_parent"><img src="Images/IMG_6080.png" width="50" height="40"></a>
+               <a href="error_page.html" target="_parent"><img src="Images/IMG_6081.jpg" width="40" height="40"></a>
+            </p>
+            
+            <p>
+               &copy;2023, WorldSportz. All rights reserved.
+            </p>
+
+            <div class="logo">
+               <a href="index.html"><img src="Images/Image.jpeg"></a>
+            </div>
+         </div>
+      </footer>
+
+            <!-- Script Topnav -->
+            <script>
+               function openForm1() {
+                  document.getElementById("id01").style.display = "block";
+               }
+               function openForm2() {
+                  document.getElementById("regForm").style.display = "block";
+               }
+               function openForm3() {
+                  document.getElementById("myOverlay").style.display = "block";
+               }
+               function openForm4() {
+                  document.getElementById("id02").style.display = "block";
+               }
+            </script>
+
+      <!-- Script: Warning -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+      <script>
+         $(document).ready(function() {
+            var i = 0;
+            function nextMsg() {
+               data = i % messages.length;
+               $('#message').html(messages[data]).fadeIn(2000).delay(1000).fadeOut(2000,nextMsg);
+               i++;
+            };
+            var messages = [
+               "Attention! The text on this page may be out of date! Last update: 14-01-2023",
+               "通知！此頁面上的文字可能已過時！最後更新: 14-01-2023",
+               "Attention! The text on this page may be out of date! Last update: 14-01-2023",
+               "¡NÓTESE BIEN! ¡El texto de esta página puede estar desactualizado! Última actualización: 14-01-2023",
+               "Attention! The text on this page may be out of date! Last update: 14-01-2023",
+               "ملحوظة! قد يكون النص الموجود في هذه الصفحة قديمًا! آخر تحديث: 14-2023-01-",
+               "Attention! The text on this page may be out of date! Last update: 14-01-2023",
+               "चेतावनी! इस पृष्ठ पर पाठ पुराना हो सकता है! अंतिम अद्यतन: 14-01-2023",
+               "Attention! The text on this page may be out of date! Last update: 14-01-2023",
+               "Aviso! O texto desta página pode estar desatualizado! Última atualização: 14-01-2023",
+               "Attention! The text on this page may be out of date! Last update: 14-01-2023",
+               "Примечание! Текст на этой странице может быть устаревшим! Последнее обновление: 14-01-2023",
+               "Attention! The text on this page may be out of date! Last update: 14-01-2023",
+               "警告！このページのテキストは古くなっている可能性があります。最終更新日: 2023 年 1 月 14 日",
+               "Attention! The text on this page may be out of date! Last update: 14-01-2023",
+               "Not! Bu sayfadaki metin güncel olmayabilir. Son güncelleme: 14 Ocak 2023",
+               "Attention! The text on this page may be out of date! Last update: 14-01-2023",
+               "Avvertimento! Il testo in questa pagina potrebbe non essere aggiornato. Ultimo aggiornamento: 14 gennaio 2023",
+               "Attention! The text on this page may be out of date! Last update: 14-01-2023",
+               "Warnung! Der Text auf dieser Seite kann veraltet sein. Zuletzt aktualisiert: 14. Januar 2023",
+               "Attention! The text on this page may be out of date! Last update: 14-01-2023",
+               "Let op! De tekst op deze pagina kan verouderd zijn. Laatst bijgewerkt: 14 januari 2023",
+               "Attention! The text on this page may be out of date! Last update: 14-01-2023",
+               "Averto! La teksto sur ĉi tiu paĝo eble estas malaktuala. Laste ĝisdatigita: la 14-an de januaro 2023",
+               "Attention! The text on this page may be out of date! Last update: 14-01-2023",
+               "Monitum! Textus huius paginae ex antiquiore esse potest. Last updated: January 14, 2023",
+               "Attention! The text on this page may be out of date! Last update: 14-01-2023",
+               "Παρατήρηση! Το κείμενο σε αυτήν τη σελίδα ενδέχεται να μην είναι ενημερωμένο. Τελευταία ενημέρωση: 14 Ιανουαρίου 2023",
+               "Attention! The text on this page may be out of date! Last update: 14-01-2023",
+            ].reverse();
+            $('#message').hide();
+            nextMsg();
+         });
+      </script>
+
+      <!-- Script Chat -->
+      <script>
+         function openForm() {
+         document.getElementById("myForm").style.display = "block";
+         }
+         function closeForm() {
+         document.getElementById("myForm").style.display = "none";
+         }
+      </script>
+
+      <!-- Script Side Navigation -->
+      <script>
+         function openNav() {
+         document.getElementById("mySidebar").style.width = "250px";
+         document.getElementById("main").style.marginLeft = "250px";
+         }
+         function closeNav() {
+         document.getElementById("mySidebar").style.width = "0";
+         document.getElementById("main").style.marginLeft = "0";
+         }
+      </script>
+
+      <!-- Script Side Navigation Dropdown -->
+      <script>
+         var dropdown = document.getElementsByClassName("dropdown-btn");
+         var i;
+         for (i = 0; i < dropdown.length; i++) {
+            dropdown[i].addEventListener("click", function() {
+               this.classList.toggle("active");
+               var dropdownContent = this.nextElementSibling;
+               if (dropdownContent.style.display === "block") {
+                  dropdownContent.style.display = "none";
+               } 
+               else {
+                  dropdownContent.style.display = "block";
+               }
+            });
+         }
+      </script>
+      
+      <!-- Script Searchbar -->
+      <script>
+         function openSearch() {
+            document.getElementById("myOverlay").style.display = "block";
+         }
+         function closeSearch() {
+            document.getElementById("myOverlay").style.display = "none";
+         }
+      </script>
+      
+      <!-- Script Login -->
+      <script>
+         var modal = document.getElementById('id01');
+            window.onclick = function(event) {
+            if (event.target == modal) {
+               modal.style.display = "none";
+            }
+         }
+      </script>
+
+      <!-- Script Register -->
+      <script>
+         var register = document.getElementById('regForm');
+         window.onclick = function(event) {
+            if (event.target == regForm) {
+               regForm.style.display = "none";
+            }
+         }
+      </script>
+
+      <script>
+         var currentTab = 0; 
+         showTab(currentTab); 
+       
+         function showTab(n) {
+         var x = document.getElementsByClassName("tab");
+         x[n].style.display = "block";
+         if (n == 0) {
+           document.getElementById("prevBtn").style.display = "none";
+         } else {
+           document.getElementById("prevBtn").style.display = "inline";
+         }
+         if (n == (x.length - 1)) {
+           document.getElementById("nextBtn").innerHTML = "Submit";
+         } else {
+           document.getElementById("nextBtn").innerHTML = "Next";
+         }
+         fixStepIndicator(n)
+         }
+       
+         function nextPrev(n) {
+            var x = document.getElementsByClassName("tab");
+            if (n == 1 && !validateForm()) return false;
+            x[currentTab].style.display = "none";
+            currentTab = currentTab + n;
+            if (currentTab >= x.length) {
+               document.getElementById("regForm").submit();
+               return false;
+            }
+            showTab(currentTab);
+         }
+       
+         function validateForm() {
+            var x, y, i, valid = true;
+            x = document.getElementsByClassName("tab");
+            y = x[currentTab].getElementsByTagName("input");
+            for (i = 0; i < y.length; i++) {
+               if (y[i].value == "") {
+                  y[i].className += " invalid";
+                  valid = false;
+               }
+            }
+            if (valid) {
+               document.getElementsByClassName("step")[currentTab].className += " finish";
+            }
+            return valid; 
+         }
+       
+         function fixStepIndicator(n) {
+            var i, x = document.getElementsByClassName("step");
+            for (i = 0; i < x.length; i++) {
+               x[i].className = x[i].className.replace(" active", "");
+            }
+            x[n].className += " active";
+         }
+      </script>
+
+      <!-- Script Sign Out -->
+      <script>
+         var modal2 = document.getElementById('id02');
+         window.onclick = function(event) {
+            if (event.target == modal2) {
+               modal2.style.display = "none";
+            }
+         }
+      </script>
+   </body>
+</html>
